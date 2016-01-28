@@ -1,3 +1,5 @@
 original push contains this line
 
 branch1 contains only this line
+
+branch2 contains only this line
