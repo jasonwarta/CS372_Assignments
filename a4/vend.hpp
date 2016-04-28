@@ -17,7 +17,7 @@
  * create a VendingMachine object
  * add CoinHandler using VendingMachine::addCoinHandler ( CoinHandler * )
  * add DefaultCoinHandler using VendingMachine::addCoinHandler ( CoinHandler * )
- * 
+ * test coins in your system with VendingMachine::processCoin ( int, weight )
  */
 
 #ifndef VEND_H
@@ -28,8 +28,14 @@
 class VendingMachine
 {
 public:
-	VendingMachine(): child_(0) {};
+	VendingMachine(): child_(nullptr) {};
+
 	virtual ~VendingMachine() { delete child_; } ;
+
+	VendingMachine(VendingMachine & other) {
+		delete child_;
+		child_ = other.child_;
+	};
 
 	/**
 	 * @brief handle a coin
@@ -62,6 +68,15 @@ class CoinHandler : public VendingMachine
 {
 public:
 	CoinHandler() = delete;
+
+	/**
+	 * @brief CoinHandler constructor
+	 * @details makes a CoinHandler object
+	 * 
+	 * @param d diameter of the coin
+	 * @param wt weight of the coin
+	 * @param val value of the coin
+	 */
 	CoinHandler(int d, double wt, double val): diameter_(d), weight_(wt), value_(val) {};
 
 	/**

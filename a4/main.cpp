@@ -9,7 +9,7 @@ struct USD {
 };
 	
 // example code to demo VendingMachine and CoinHandler classes
-void testVendingMachine(){
+void makeUSDVendingMachine(VendingMachine & vendor){
 	// create multiple US coins
 	// units meainingless, but these are the units I'm using:
 	// units: diameter(mm), weight(g), value($)
@@ -20,18 +20,23 @@ void testVendingMachine(){
 	USD nickel 	(21, 5.0, 0.05);
 	USD penny		(19, 2.5, 0.01);
 
-	// create base VendingMachine object
-	VendingMachine vendor;
+	// 
+	vendor = VendingMachine();
+	
 	// add multiple CoinHandler handlers to the VendingMachine
 	vendor.addCoinHandler(new CoinHandler(dollar.d_  , dollar.wt_  , dollar.val_));
-	vendor.addCoinHandler(new CoinHandler(quarter.d_ , quarter.wt_ , dollar.val_));
+	vendor.addCoinHandler(new CoinHandler(quarter.d_ , quarter.wt_ , quarter.val_));
 	vendor.addCoinHandler(new CoinHandler(dime.d_    , dime.wt_    , dime.val_));
 	vendor.addCoinHandler(new CoinHandler(nickel.d_  , nickel.wt_  , nickel.val_));
 	vendor.addCoinHandler(new CoinHandler(penny.d_   , penny.wt_   , penny.val_));
 	// add default handler
 	// this MUST be added at the end of an object
-	vendor.addCoinHandler(new DefaultCoin());
+	vendor.addCoinHandler(new DefaultCoinHandler());
 
+	// return vendor;
+}
+
+void testVendingMachine(VendingMachine & vendor){
 	vendor.processCoin(15,5.1);
 	vendor.processCoin(26,8.1); //dollar
 	vendor.processCoin(28,9.7);
@@ -45,9 +50,9 @@ void testVendingMachine(){
 }
 
 int main(int args, char *argv[]){
-	// uncomment this function call to run the tests in the function testVendingMachine
-	testVendingMachine();
-
+	VendingMachine vendor; 
+	makeUSDVendingMachine(vendor);
+	testVendingMachine(vendor);
 
 
 
