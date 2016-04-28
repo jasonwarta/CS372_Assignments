@@ -7,8 +7,8 @@ struct USD {
 	double wt_;		// weight of coin 	(grams)
 	double val_;	// value of coin 		(USD)
 };
-	
-// example code to demo VendingMachine and CoinHandler classes
+
+//create vending machine with basic USD coins
 void makeUSDVendingMachine(VendingMachine & vendor){
 	// create multiple US coins
 	// units meainingless, but these are the units I'm using:
@@ -20,7 +20,7 @@ void makeUSDVendingMachine(VendingMachine & vendor){
 	USD nickel 	(21, 5.0, 0.05);
 	USD penny		(19, 2.5, 0.01);
 
-	// 
+	// reset VendingMachine
 	vendor = VendingMachine();
 	
 	// add multiple CoinHandler handlers to the VendingMachine
@@ -32,10 +32,9 @@ void makeUSDVendingMachine(VendingMachine & vendor){
 	// add default handler
 	// this MUST be added at the end of an object
 	vendor.addCoinHandler(new DefaultCoinHandler());
-
-	// return vendor;
 }
 
+// example code to demo VendingMachine and CoinHandler classes
 void testVendingMachine(VendingMachine & vendor){
 	vendor.processCoin(15,5.1);
 	vendor.processCoin(26,8.1); //dollar
@@ -50,11 +49,10 @@ void testVendingMachine(VendingMachine & vendor){
 }
 
 int main(int args, char *argv[]){
+
 	VendingMachine vendor; 
 	makeUSDVendingMachine(vendor);
 	testVendingMachine(vendor);
-
-
 
 	return 0;
 }
