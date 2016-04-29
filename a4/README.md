@@ -7,11 +7,11 @@ All classes are defined in vend.hpp
 
 
 ##Usage:
-include vend.h  
+include vend.hpp  
 create a VendingMachine object  
 To add handlers to VendingMachine, use `VendingMachine::addCoinHandler ( CoinHandler * )`  
 Add as many CoinHandlers as you need for your quantity of coins  
 You __MUST__ add a DefaultCoinHandler as the last coin handler in your VendingMachine. If you neglect adding a DefaultCoinHandler your code's execution will be undefined and likely result in a Segmentation Fault.
 
 Test coins in the VendingMachine with `VendingMachine::processCoin( int diameter, double weight)`  
-For __valid__ coins, a message with the value, diameter, and weight of the coin will be printed to the console.  For __invalid__ coins, an error message with the diameter and weight of the coin will be printed to the console.
+For __valid coins__, a message with the value, diameter, and weight of the coin will be printed to the console.  For __invalid coins__, a rejection message with the diameter and weight of the coin will be printed to the console.

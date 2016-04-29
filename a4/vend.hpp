@@ -2,6 +2,7 @@
  * vend.h
  * 4/27/2016
  * 
+ * Jason Warta
  * CS 372 Sp16
  * Assignment 4: Implementing a New Design Pattern
  * Chain of Responsibility design pattern
@@ -13,7 +14,7 @@
  * 	
  * 	
  * Usage:
- * include vend.h
+ * include vend.hpp
  * create a VendingMachine object
  * add CoinHandler using VendingMachine::addCoinHandler ( CoinHandler * )
  * add DefaultCoinHandler using VendingMachine::addCoinHandler ( CoinHandler * )
@@ -77,7 +78,7 @@ public:
 	 * @param wt weight of the coin
 	 * @param val value of the coin
 	 */
-	CoinHandler(int d, double wt, double val): diameter_(d), weight_(wt), value_(val) {};
+	CoinHandler(int d, double wt, double val): VendingMachine(), diameter_(d), weight_(wt), value_(val) {};
 
 	/**
 	 * @brief handle a coin

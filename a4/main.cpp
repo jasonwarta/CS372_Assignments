@@ -11,8 +11,8 @@ struct USD {
 //create vending machine with basic USD coins
 void makeUSDVendingMachine(VendingMachine & vendor){
 	// create multiple US coins
-	// units meainingless, but these are the units I'm using:
-	// units: diameter(mm), weight(g), value($)
+	// units are meainingless, but these are the units I'm using:
+	// units: diameter(mm), weight(g), value(USD)
 	// these values were found on the US Mint website
 	USD dollar	(26, 8.1, 1.00);
 	USD quarter	(23, 5.7, 0.25);
